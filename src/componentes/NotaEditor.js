@@ -3,7 +3,7 @@ import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView 
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function NotaEditor() {
+export default function NotaEditor({mostraNotas}) {
 
   const [texto, setTexto] = useState("")
   const [modalVisivel, setModalVisivel] = useState(false)
@@ -16,11 +16,7 @@ export default function NotaEditor() {
     }
     console.log(umaNota);
     await AsyncStorage.setItem(umaNota.id, umaNota.texto);
-    mostraNota();
-  }
-
-  const mostraNota = async () => {
-    // console.log(await AsyncStorage.getItem('1'));
+    mostraNotas();
   }
 
   const geraId = async () => {
